@@ -32,6 +32,7 @@ public class DealershipTest {
         vehicles.add(car1);
         vehicles.add(car2);
         vehicles.add(car3);
+        customerVehicles = new ArrayList<>();
         dealership = new Dealership(vehicles,200000);
         customer = new Customer("Stan",11000, customerVehicles );
     }
@@ -79,5 +80,15 @@ public class DealershipTest {
     public void canRemoveMoneyFromTill() {
         dealership.removeMoney(100000.00);
         assertEquals(100000, dealership.getTill(), 0.01 );
+    }
+
+    @Test
+    public void canSellVehicle() {
+        dealership.sellVehicle(car1, customer);
+        assertEquals(210000, dealership.getTill(), 0.01);
+        assertEquals(1000, customer.getMoney(), 0.01);
+        assertEquals(2, dealership.getVehicles().size());
+        assertEquals(1, customer.getVehicles().size());
+
     }
 }

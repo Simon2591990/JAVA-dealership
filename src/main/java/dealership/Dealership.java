@@ -1,5 +1,6 @@
 package dealership;
 
+import people.Customer;
 import vehicles.Car;
 import vehicles.Vehicle;
 import vehicles.VehicleType;
@@ -61,5 +62,12 @@ public class Dealership {
     public void removeMoney(double amount) {
         this.till -= amount;
 
+    }
+
+    public void sellVehicle(Vehicle vehicle, Customer customer) {
+        customer.removeMoney(vehicle.getPrice());
+        addMoney(vehicle.getPrice());
+        removeVehicle(vehicle);
+        customer.addVehicle(vehicle);
     }
 }

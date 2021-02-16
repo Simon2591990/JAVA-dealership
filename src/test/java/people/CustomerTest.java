@@ -12,6 +12,7 @@ public class CustomerTest {
     Customer customer;
     ArrayList<Vehicle> vehicles;
 
+
     @Before
     public void before(){
         vehicles = new ArrayList<Vehicle>();
