@@ -7,6 +7,8 @@ public abstract class Vehicle {
     private Engine engine;
     private Tyres tyres;
     private VehicleType vehicleType;
+    private double damageCost;
+
 
     public Vehicle(double price, String color, Engine engine, Tyres tyres, VehicleType vehicleType) {
         this.price = price;
@@ -14,6 +16,8 @@ public abstract class Vehicle {
         this.engine = engine;
         this.tyres = tyres;
         this.vehicleType = vehicleType;
+        this.damageCost = 0;
+
     }
 
     public double getPrice() {
@@ -54,5 +58,20 @@ public abstract class Vehicle {
 
     public void setVehicleType(VehicleType vehicleType) {
         this.vehicleType = vehicleType;
+    }
+
+    public double getDamageCost() {
+        return damageCost;
+    }
+
+    public double getSellPrice() {
+        return getPrice() - getDamageCost();
+    }
+    public void addDamage(double damage){
+        this.damageCost += damage;
+    }
+    public void repairDamage(double repair){
+        this.damageCost -= repair;
+
     }
 }

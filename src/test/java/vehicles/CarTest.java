@@ -43,4 +43,35 @@ public class CarTest {
     public void hasVehicleType() {
         assertEquals(VehicleType.HYBRID_CAR, car.getVehicleType());
     }
+
+    @Test
+    public void has0AsDefaultDamage() {
+        assertEquals(0, car.getDamageCost(), 0.01);
+    }
+
+    @Test
+    public void canAddDamage() {
+        car.addDamage(500);
+        assertEquals(500, car.getDamageCost(), 0.01);
+    }
+
+    @Test
+    public void getSellValue() {
+        car.addDamage(1000);
+        assertEquals(9000, car.getSellPrice(),0.01);
+    }
+
+    @Test
+    public void canRepair() {
+        car.addDamage(1000);
+        car.repairDamage(500);
+        assertEquals(9500, car.getSellPrice(), 0.01);
+    }
+
+//    @Test
+//    public void cantRepairPastOriginalPrice() {
+//        car.addDamage(1000);
+//        car.repairDamage(1500);
+//        assertEquals(9000, car.getSellPrice(), 0.01);
+//    }
 }

@@ -65,9 +65,16 @@ public class Dealership {
     }
 
     public void sellVehicle(Vehicle vehicle, Customer customer) {
-        customer.removeMoney(vehicle.getPrice());
-        addMoney(vehicle.getPrice());
+        customer.removeMoney(vehicle.getSellPrice());
+        addMoney(vehicle.getSellPrice());
         removeVehicle(vehicle);
         customer.addVehicle(vehicle);
+    }
+
+    public void repairVehicle(Vehicle vehicle, double repair) {
+        if (vehicle.getDamageCost() >= repair){
+            vehicle.repairDamage(repair);
+            removeMoney(repair);
+        }
     }
 }
