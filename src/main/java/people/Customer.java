@@ -1,5 +1,6 @@
 package people;
 
+import vehicles.Car;
 import vehicles.Vehicle;
 
 import java.util.ArrayList;
@@ -37,5 +38,21 @@ public class Customer {
 
     public void setVehicles(ArrayList<Vehicle> vehicles) {
         this.vehicles = vehicles;
+    }
+
+    public void addVehicle(Vehicle vehicle) {
+        this.vehicles.add(vehicle);
+    }
+
+    public void removeVehicle(Vehicle vehicle) {
+        this.vehicles.remove(vehicle);
+    }
+
+    public void removeMoney(double amount) {
+        this.money -= amount;
+    }
+
+    public void addMoney(double amount) {
+        this.money += amount;
     }
 }

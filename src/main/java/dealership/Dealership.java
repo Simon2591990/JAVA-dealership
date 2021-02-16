@@ -1,5 +1,6 @@
 package dealership;
 
+import vehicles.Car;
 import vehicles.Vehicle;
 import vehicles.VehicleType;
 
@@ -39,6 +40,26 @@ public class Dealership {
             stock.merge(vehicle.getVehicleType(), 1, Integer::sum);
         }
         return stock;
+
+    }
+
+    public int getStock(VehicleType vehicleType) {
+        return this.stock.get(vehicleType);
+    }
+
+    public void addVehicle(Vehicle vehicle) {
+        this.vehicles.add(vehicle);
+    }
+    public void removeVehicle(Vehicle vehicle){
+        this.vehicles.remove(vehicle);
+    }
+
+    public void addMoney(Double amount) {
+        this.till += amount;
+    }
+
+    public void removeMoney(double amount) {
+        this.till -= amount;
 
     }
 }
